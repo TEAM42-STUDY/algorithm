@@ -20,7 +20,7 @@ function solve(arr, n, x, y) {
     return;
   }
 
-  // 모두 같으면 4분할해서 재귀탐색
+  // 그렇지 않으면 4분할해서 재귀탐색
   const nn = n / 2;
   solve(arr, nn, x, y);
   solve(arr, nn, x + nn, y);
