@@ -1,16 +1,11 @@
 const assert = require("assert");
 
 function solution(sizes) {
-  const [ws, hs] = sizes
+  const [w, h] = sizes
     .map(([w, h]) => (w < h ? [w, h] : [h, w]))
-    .reduce(
-      ([ws, hs], [w, h]) => [
-        [...ws, w],
-        [...hs, h],
-      ],
-      [[], []]
-    );
-  return Math.max(...ws) * Math.max(...hs);
+    .reduce(([mw, mh], [w, h]) =>
+      [Math.max(mw, w), Math.max(mh, h)], [[], []]);
+  return w * h;
 }
 
 assert.equal(
